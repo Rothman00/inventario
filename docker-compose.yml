@@ -1,0 +1,39 @@
+services:
+
+  mysql:
+    image: mysql:8.0
+    container_name: inventario_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bd_inventario
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./bd_inventario.sql:/docker-entrypoint-initdb.d/bd_inventario.sql
+    networks:
+      - inventario_net
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: inventario_phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    networks:
+      - inventario_net
+
+volumes:
+  mysql_data:
+
+networks:
+  inventario_net:
+    driver: bridge

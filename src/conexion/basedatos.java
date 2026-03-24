@@ -6,9 +6,8 @@ import java.sql.DriverManager;
 public class basedatos {
     public static Connection conectar() {
         try {
-            String url = "jdbc:postgresql://localhost:5432/bd_inventario";
-            // "jdbc:mysql://localhost:3306/tu_base"
-            String user = "postgres";
+            String url = "jdbc:mysql://localhost:3306/bd_inventario?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+            String user = "root";
             String password = "root";
             
             return DriverManager.getConnection(url, user, password);
