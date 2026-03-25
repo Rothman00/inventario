@@ -3,12 +3,12 @@ package inventario;
 import java.awt.*;
 import javax.swing.*;
 
-public class inventario extends JFrame {
+public class Inventario extends JFrame {
 
     private final PanelProductos panelProductos;
     private final PanelKardex   panelKardex;
 
-    public inventario() {
+    public Inventario() {
         setTitle("Sistema de Inventario");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setMinimumSize(new Dimension(950, 640));
@@ -43,6 +43,6 @@ public class inventario extends JFrame {
                 }
             }
         } catch (Exception ignored) {}
-        EventQueue.invokeLater(() -> new inventario().setVisible(true));
+        EventQueue.invokeLater(() -> new Inventario().setVisible(true));
     }
 }
