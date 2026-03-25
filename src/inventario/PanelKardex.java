@@ -100,7 +100,7 @@ public class PanelKardex extends JPanel {
         cboProducto.removeAllItems();
         idsProductos.clear();
         consumo.query(
-            "SELECT pro_id, pro_nombre FROM inv_producto WHERE pro_estado='A' ORDER BY pro_nombre"
+            "SELECT pro_id, pro_nombre FROM inv_producto WHERE pro_estado='V' ORDER BY pro_nombre"
         ).forEach(r -> {
             idsProductos.add(Integer.parseInt(r.get("pro_id").toString()));
             cboProducto.addItem(r.get("pro_nombre").toString());
