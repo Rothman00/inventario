@@ -40,7 +40,7 @@ public class PanelUnidades extends JPanel {
         txtAbreviatura = new JTextField(8);
         g.gridx = 3; g.weightx = 0.5; p.add(txtAbreviatura, g);
         g.gridx = 4; g.weightx = 0;  p.add(new JLabel("Estado:"), g);
-        cboEstado = new JComboBox<>(new String[]{"A", "I"});
+        cboEstado = new JComboBox<>(new String[]{"V", "N"});
         g.gridx = 5; g.weightx = 0;  p.add(cboEstado, g);
 
         // Fila 1 – Botones

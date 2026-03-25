@@ -49,7 +49,7 @@ public class PanelProductos extends JPanel {
         cboUnidad = new JComboBox<>();
         g.gridx = 1; g.weightx = 1;   p.add(cboUnidad, g);
         g.gridx = 2; g.weightx = 0;   p.add(new JLabel("Estado:"), g);
-        cboEstado = new JComboBox<>(new String[]{"A", "I"});
+        cboEstado = new JComboBox<>(new String[]{"V", "N"});
         g.gridx = 3; g.weightx = 0;   p.add(cboEstado, g);
 
         // Fila 2 – Botones
@@ -92,7 +92,7 @@ public class PanelProductos extends JPanel {
         cboUnidad.removeAllItems();
         idsUnidades.clear();
         consumo.query(
-            "SELECT uni_id, uni_nombre FROM inv_unidad WHERE uni_estado='A' ORDER BY uni_nombre"
+            "SELECT uni_id, uni_nombre FROM inv_unidad WHERE uni_estado='V' ORDER BY uni_nombre"
         ).forEach(r -> {
             idsUnidades.add(Integer.parseInt(r.get("uni_id").toString()));
             cboUnidad.addItem(r.get("uni_nombre").toString());

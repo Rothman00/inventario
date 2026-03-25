@@ -186,12 +186,12 @@ public class PanelKardex extends JPanel {
         double ingreso = esVenta ? 0      : cantidad;
         double salida  = esVenta ? cantidad : 0;
         double total   = esVenta ? stock - cantidad : stock + cantidad;
-        String estado  = esVenta ? "V"    : "C";
+        // String estado  = esVenta ? "V"    : "C";
 
         consumo.execute(
             "INSERT INTO inv_kardex(kar_producto, kar_actual, kar_ingreso, kar_salida, kar_total, kar_estado) " +
             "VALUES(?,?,?,?,?,?)",
-            productoId, stock, ingreso, salida, total, estado);
+            productoId, stock, ingreso, salida, total, "V");
 
         JOptionPane.showMessageDialog(this,
             String.format(
@@ -221,7 +221,7 @@ public class PanelKardex extends JPanel {
             r.get("kar_ingreso"),
             r.get("kar_salida"),
             r.get("kar_total"),
-            "V".equals(r.get("kar_estado")) ? "Venta" : "Compra"
+            "V".equals(r.get("kar_estado")) ? "Vigente" : "No disponible"
         }));
     }
 
